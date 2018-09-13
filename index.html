@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	
+</head>
+<body onkeypress="play()">
+	<style >
+		#score{font-size: 200px;}
+	</style>
+	<center>
+	<audio   id="song" >
+      <source src="aa.mp3">
+    </audio>
+	<h1 id="score"> 0 </h1>
+	<button id="wa5ir" onclick="wakhir()" >wa5ir</button>
+	<button onclick="reset()"> reset </button>
+	<button id="9adem" onclick="avance()">9adem</button>
+	
+	</center>
+
+</body>
+<script type="text/javascript">
+
+		var song = document.getElementById('song');
+		var score = document.getElementById('score');
+		var colors = ['green','skyblue','red','black', 'beige','grey','bleu','yallow','tomate'];
+		var position=0
+		
+		function avance(){
+
+		song.currentTime+= 10;	
+		}
+		function wakhir(){
+		song.currentTime-= 10;	
+		}
+		function reset(){
+			score.innerHTML=0;
+			song.currentTime = 0;
+		}
+		
+	function play(e){
+		if (position>colors.length) {position=0;}
+		document.body.style.backgroundColor =
+		colors[position];
+		position++;
+		score.innerHTML++;
+		
+	 song.play();
+}
+    function pause(){song.pause(); 
+}
+setInterval(pause,2000);
+
+</script>
+
+
+
+
+
+
+
+
+
+</html>
